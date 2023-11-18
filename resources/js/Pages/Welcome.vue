@@ -1,45 +1,16 @@
-<!--
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
-<!--
-  This example requires Tailwind CSS v2.0+
-
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/aspect-ratio'),
-    ],
-  }
-  ```
--->
 <template>
     <Notivue v-slot="item">
         <Notifications :item="item" :theme="materialTheme"/>
     </Notivue>
-    <div class="relative w-full h-screen block lg:flex  justify-center items-center py-16 bg-white">
+    <a :href="route('login')" class="z-40 bg-gray-200 p-2 rounded-full right-14 bottom-16 absolute">
+        <ArrowLeftOnRectangleIcon class="w-10 fill-slate-400"/>
+    </a>
+    <div class="relative w-full pt-52 lg:pt-0 h-screen block lg:flex justify-center items-center py-16 bg-gray-50 lg:bg-white">
         <div class="hidden absolute top-0 inset-x-0 h-1/2 bg-yellow-500 lg:block" aria-hidden="true" />
-        <div class="max-w-7xl mx-auto bg-white lg:bg-transparent lg:px-8">
+        <div class="max-w-7xl mx-auto bg-transparent lg:bg-transparent lg:px-8">
             <div class="lg:grid lg:grid-cols-12">
                 <div class="relative z-10 lg:col-start-1 lg:row-start-1 lg:col-span-4 lg:py-16 lg:bg-transparent">
-                    <div class="absolute inset-x-0 h-1/2 bg-white lg:hidden" aria-hidden="true" />
+                    <div class="absolute inset-x-0 bottom-0 h-1/2 bg-red-800 lg:hidden" aria-hidden="true" />
                     <div class="max-w-md mx-auto px-4 sm:max-w-3xl sm:px-6 lg:max-w-none lg:p-0">
                         <div class="aspect-w-10 aspect-h-6 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1">
                             <img class="object-contain lg:object-cover object-center bg-white rounded-3xl shadow-2xl" src="/assets/images/Gerindra.png" alt="" />
@@ -79,5 +50,6 @@
 
 <script setup>
 import {materialTheme, Notifications, Notivue, usePush} from "notivue";
+import {ArrowLeftOnRectangleIcon} from "@heroicons/vue/24/solid"
 </script>
 
