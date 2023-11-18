@@ -30,4 +30,5 @@ class CitizenController extends Controller
 
         return to_route('dashboard');
     }
+    //todo : fixing responsiveness
 }

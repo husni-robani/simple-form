@@ -1,4 +1,7 @@
 <template>
+    <Notivue v-slot="item">
+        <Notifications :item="item" :theme="materialTheme"/>
+    </Notivue>
     <div class="bg-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8 lg:py-24">
         <div class="relative max-w-xl mx-auto">
             <svg class="absolute left-full transform translate-x-1/2" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
@@ -52,9 +55,23 @@
                         </div>
                     </div>
                     <div class="sm:col-span-2">
+                        <label for="kelurahan" class="block text-sm font-medium text-gray-700">Kelurahan</label>
+                        <div class="mt-1">
+                            <input type="text" name="keluarahan" id="kelurahan" v-model="form.kelurahan" class="py-3 px-4 block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 border-gray-300 rounded-md" />
+                            <InputError :message="form.errors.kelurahan"/>
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="kecamatan" class="block text-sm font-medium text-gray-700">Kecamatan</label>
+                        <div class="mt-1">
+                            <input type="text" name="kecamatan" id="kecamatan" v-model="form.kecamatan" class="py-3 px-4 block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 border-gray-300 rounded-md" />
+                            <InputError :message="form.errors.kecamatan"/>
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
                         <label for="tps_address" class="block text-sm font-medium text-gray-700">Alamat TPS</label>
                         <div class="mt-1">
-                            <textarea id="tps_address" name="tps_address" rows="4" v-model="form.tps_address" class="py-3 px-4 block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 border border-gray-300 rounded-md" />
+                            <textarea id="tps_address" name="tps_address" rows="3" v-model="form.tps_address" class="py-3 px-4 block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 border border-gray-300 rounded-md" />
                             <InputError :message="form.errors.tps_address"/>
                         </div>
                     </div>
@@ -74,19 +91,27 @@ import InputError from "@/Components/InputError.vue";
 
 const agreed = ref(false)
 import {useForm} from "@inertiajs/vue3";
+import {materialTheme, Notifications, Notivue, usePush} from "notivue";
 
 const form = useForm({
     name: null,
     nik: null,
     tps: null,
     tps_address: null,
-    phone: null
+    phone: null,
+    kelurahan: null,
+    kecamatan: null
 })
 
+const push = usePush()
 function submit(){
     form.post(route('form'), {
         onSuccess: () => {
             form.reset()
+            push.success({
+                message: "Form berhasil dikirim",
+                duration: 5000
+            })
         }
     })
 }

@@ -31,6 +31,9 @@
   ```
 -->
 <template>
+    <Notivue v-slot="item">
+        <Notifications :item="item" :theme="materialTheme"/>
+    </Notivue>
     <div class="relative w-full h-screen block lg:flex  justify-center items-center py-16 bg-white">
         <div class="hidden absolute top-0 inset-x-0 h-1/2 bg-yellow-500 lg:block" aria-hidden="true" />
         <div class="max-w-7xl mx-auto bg-white lg:bg-transparent lg:px-8">
@@ -75,5 +78,6 @@
 </template>
 
 <script setup>
+import {materialTheme, Notifications, Notivue, usePush} from "notivue";
 </script>
 

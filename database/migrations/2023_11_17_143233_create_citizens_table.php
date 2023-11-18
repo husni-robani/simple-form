@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('phone');
             $table->integer('tps');
             $table->string('tps_address');
+            $table->string('kelurahan');
+            $table->string('kecamatan');
             $table->timestamps();
         });
     }

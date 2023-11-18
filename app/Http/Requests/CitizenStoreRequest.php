@@ -23,10 +23,12 @@ class CitizenStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'nik' => 'required|unique:citizens,nik|regex:/^[0-9]+$/',
+            'nik' => 'required|unique:citizens,nik|regex:/^[0-9]+$/|min:16',
             'tps' => 'required|integer',
             'tps_address' => 'required|string',
-            'phone' => 'required|string|regex:/^[0-9]+$/'
+            'phone' => 'required|string|regex:/^[0-9]+$/',
+            'kelurahan' => 'required|string',
+            'kecamatan' => 'required|string'
         ];
     }
 
@@ -36,6 +38,7 @@ class CitizenStoreRequest extends FormRequest
             'name.required' => 'Nama harus diisi',
             'name.string' => 'Masukan nama dengan format yang benar',
             'nik.required' => 'NIK harus diisi',
+            'nik.min' => "NIK memiliki paling sedikit 16 karakter",
             'nik.unique' => 'NIK sudah terdaftar',
             'nik.regex' => 'NIK hanya boleh mengandung angka',
             'tps.required' => 'Nomor TPS harus diisi',
@@ -44,8 +47,11 @@ class CitizenStoreRequest extends FormRequest
             'phone.regex' => 'Nomor telepon hanya boleh mengandung angka',
             'phone.string' => 'Masukan nomor telepon dengan benar',
             'tps_address.required' => 'Alamat TPS harus diisi',
-            'tps_address.string' => 'Masukan alamat TPS dengan format yang benar'
-
+            'tps_address.string' => 'Masukan alamat TPS dengan format yang benar',
+            'kelurahan.required' => "Keluarahan harus diisi",
+            'keluarahan.string' => 'masukan format dengan benar',
+            'kecamatan.required' => 'Kecamatan harus diisi',
+            'kecamatan.string' => 'Masukan format kecamatan dengan benar'
         ];
     }
 }
