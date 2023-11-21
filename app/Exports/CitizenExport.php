@@ -28,6 +28,8 @@ class CitizenExport extends StringValueBinder implements FromCollection, ShouldA
             'tps' => 'No TPS',
             'kelurahan' => 'Kelurahan',
             'kecamatan' => 'Kecamatan',
+            'korcam' => 'Nama Kordinator Kecamatan',
+            'no_kercam' => 'No Whatsapp Kordinator Kecamatan',
             'tps_address' => 'Alamat TPS'
         ];
         $citizens->prepend($newCitizen);

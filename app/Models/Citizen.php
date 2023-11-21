@@ -9,6 +9,6 @@ class Citizen extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'nik', 'phone', 'tps', 'tps_address', 'kelurahan', 'kecamatan'];
+    protected $fillable = ['name', 'nik', 'phone', 'tps', 'tps_address', 'kelurahan', 'kecamatan', 'korcam', 'no_korcam'];
     protected $hidden = ['created_at', 'updated_at'];
 }

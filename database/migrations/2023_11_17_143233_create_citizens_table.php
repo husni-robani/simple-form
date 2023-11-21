@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('nik')->unique();
             $table->string('phone');
             $table->integer('tps');
-            $table->string('tps_address');
             $table->string('kelurahan');
             $table->string('kecamatan');
+            $table->string('korcam');
+            $table->string('no_korcam');
+            $table->string('tps_address');
             $table->timestamps();
         });
     }

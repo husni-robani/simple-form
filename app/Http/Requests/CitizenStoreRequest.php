@@ -28,7 +28,9 @@ class CitizenStoreRequest extends FormRequest
             'tps_address' => 'required|string',
             'phone' => 'required|string|regex:/^[0-9]+$/',
             'kelurahan' => 'required|string',
-            'kecamatan' => 'required|string'
+            'kecamatan' => 'required|string',
+            'korcam' => 'required|string',
+            'no_korcam' => 'required|string|regex:/^[0-9]+$/'
         ];
     }
 
@@ -51,7 +53,11 @@ class CitizenStoreRequest extends FormRequest
             'kelurahan.required' => "Keluarahan harus diisi",
             'keluarahan.string' => 'masukan format dengan benar',
             'kecamatan.required' => 'Kecamatan harus diisi',
-            'kecamatan.string' => 'Masukan format kecamatan dengan benar'
+            'kecamatan.string' => 'Masukan format kecamatan dengan benar',
+            'korcam.required' => 'Nama kordinator kecamatan harus diisi',
+            'korcam.string' => 'Masukan format nama kordinator kecamatan dengan benar',
+            'no_korcam.required' => 'No telepon kordinator kecamatan harus diisi',
+            'no_korcam.string' => 'Masukan no telepon kordinator kecamatan dengan benar'
         ];
     }
 }

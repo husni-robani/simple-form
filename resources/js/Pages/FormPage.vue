@@ -69,6 +69,20 @@
                         </div>
                     </div>
                     <div class="sm:col-span-2">
+                        <label for="korcam" class="block text-sm font-medium text-gray-700">Nama Kordinator Kecamatan</label>
+                        <div class="mt-1">
+                            <input type="text" name="korcam" id="korcam" v-model="form.korcam" class="py-3 px-4 block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 border-gray-300 rounded-md" />
+                            <InputError :message="form.errors.korcam"/>
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label for="no_kecamatan" class="block text-sm font-medium text-gray-700">No whatsapp atau telepon kordinator kecamatan</label>
+                        <div class="mt-1">
+                            <input type="text" name="no_kecamatan" id="no_kecamatan" v-model="form.no_korcam" class="py-3 px-4 block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 border-gray-300 rounded-md" />
+                            <InputError :message="form.errors.no_korcam"/>
+                        </div>
+                    </div>
+                    <div class="sm:col-span-2">
                         <label for="tps_address" class="block text-sm font-medium text-gray-700">Alamat TPS</label>
                         <div class="mt-1">
                             <textarea id="tps_address" name="tps_address" rows="3" v-model="form.tps_address" class="py-3 px-4 block w-full shadow-sm focus:ring-yellow-500 focus:border-yellow-500 border border-gray-300 rounded-md" />
@@ -100,7 +114,9 @@ const form = useForm({
     tps_address: null,
     phone: null,
     kelurahan: null,
-    kecamatan: null
+    kecamatan: null,
+    korcam: null,
+    no_korcam: null
 })
 
 const push = usePush()
